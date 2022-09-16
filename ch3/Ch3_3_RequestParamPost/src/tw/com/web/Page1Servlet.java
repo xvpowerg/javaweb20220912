@@ -1,0 +1,27 @@
+package tw.com.web;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/page1")
+public class Page1Servlet extends HttpServlet {
+	@Override
+	protected void doPost(HttpServletRequest req, 
+			HttpServletResponse resp) 
+					throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String acc = req.getParameter("acc");
+		String pwd = req.getParameter("pwd");
+		String toPage = "/page2";
+		if ( !(acc.equals("qwer") && pwd.equals("12345")) ) {
+			toPage = "/page3";
+		}
+		req.getRequestDispatcher(toPage).forward(req, resp);
+		System.out.println(acc+":"+pwd);
+	}
+}
