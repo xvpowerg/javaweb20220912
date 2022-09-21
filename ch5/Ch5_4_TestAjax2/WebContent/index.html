@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="BIG5">
+<title>Insert title here</title>
+<script>
+	function genNumber(){
+		let msg = document.getElementById("msg");
+		msg.innerText = "等待....";
+		fetch("page1",{method:"get"}).then(resp=>{			
+			return resp.text();
+		}).then(text=>{			
+			msg.innerText = text;
+		});
+	}
+</script>
+</head>
+<body>	
+		
+		<button type="button" onclick="genNumber()">產生數字</button>
+		<div id="msg"></div>
+</body>
+</html>
