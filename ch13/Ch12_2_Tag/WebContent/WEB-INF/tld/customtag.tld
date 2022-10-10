@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+    http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+  <tlib-version>1.0</tlib-version>
+	<short-name>Custom Tag</short-name>
+	<uri>http://www.mytag.com.tw/simple</uri>
+	<tag>
+		<description>MyHello</description>
+		<name>hello</name>
+		<tag-class>tw.com.tag.HelloTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	
+	<tag>
+		<description>HelloMsgTest</description>
+		<name>hellomsg</name>
+		<tag-class>tw.com.tag.MsgHelloTag</tag-class>	
+		<body-content>empty</body-content>
+		<attribute>
+			<name>message</name>
+			<required>true</required>
+			   <!-- 若設定為false時 在此用此tag時,屬性的值必須是字串 即設為true才可以使用EL表示 -->
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<description>BodyTag</description>
+		<name>mybody</name>
+		<tag-class>tw.com.tag.MyBodyTagHandler</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>message</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+			<name>stringToUpper</name>
+			<tag-class>tw.com.tag.MyBodyTagSupportHandler</tag-class>
+			<body-content>JSP</body-content>
+			<info>轉換body內容為大寫</info>		
+	</tag>
+	
+	<tag>
+			<name>img</name>
+			<tag-class>tw.com.tag.MySimpleTagHandler</tag-class>
+			<body-content>empty</body-content>
+			<description>Display Image</description>
+			<attribute>
+					<name>url</name>
+					<required>true</required>
+					<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+					<name>showBorder</name>
+					<required>false</required>
+					<rtexprvalue>false</rtexprvalue>
+					<type>boolean</type>
+			</attribute>
+			<attribute>
+					<name>showUrl</name>
+					<required>fasle</required>
+					<rtexprvalue>false</rtexprvalue>
+					<type>boolean</type>
+			</attribute>
+	
+	</tag>
+</taglib>
